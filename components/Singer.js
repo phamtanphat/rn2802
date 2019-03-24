@@ -16,7 +16,7 @@ export default class Singer extends Component {
                 data={this.state.singers}
                 keyExtractor={item => item.id}
                 renderItem={param => (
-                    <View style={{ marginTop : 20 , marginHorizontal : 10 , padding : 10, flexDirection : 'row' , backgroundColor : '#EEE9F6'}}>
+                    <View style={{ marginTop : 20 , marginHorizontal : 10 , padding : 10, flexDirection : 'row' , backgroundColor : 'orange'}}>
                         <View style={{ margin : 5}}  >
                             <Image
                                 style={{width : 100 , height : 100}} >
