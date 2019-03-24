@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { Text, View , FlatList , TouchableOpacity , Image } from 'react-native'
 
 export default class Singer extends Component {
     constructor(props){
         super(props);
-        this.state ={singers : []}
+        this.state ={singers : [{email : '' , id : 'a1'}]}
     }
     render() {
         return (
-        <View style={{flex : 1 , justifyContent : 'center'}}>
+        <View style={{flex : 1 , justifyContent : 'center' , backgroundColor : 'white' , paddingTop : 20}}>
             <View style={{ alignItems : 'center' , padding : 20}}>
                 <Text style={{fontSize : 20  }}> Singers Component </Text>
             </View>
