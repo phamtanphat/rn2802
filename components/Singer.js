@@ -1,17 +1,29 @@
 import React, { Component } from 'react'
 import { Text, View , FlatList , TouchableOpacity , Image } from 'react-native'
+import axios from 'axios';
 
 export default class Singer extends Component {
     constructor(props){
         super(props);
-        this.state ={singers : [{email : '' , id : 'a1'}]}
+        this.state ={singers : []}
+    }
+    async componentWillMount(){
+        try {
+            const response = await axios.get("https://servertest12.herokuapp.com/singer")
+            this.setState({singers : response.data.singers})
+        } catch (error) {
+            alert(error.message)
+        }
+        
+        
     }
     render() {
         return (
         <View style={{flex : 1 , justifyContent : 'center' , backgroundColor : 'white' , paddingTop : 20}}>
-            <View style={{ alignItems : 'center' , padding : 20}}>
-                <Text style={{fontSize : 20  }}> Singers Component </Text>
-            </View>
+            <TouchableOpacity 
+            onPress={this.setWord}>
+                <Text>Click</Text>
+            </TouchableOpacity>
             <FlatList
                 data={this.state.singers}
                 keyExtractor={item => item.id}
