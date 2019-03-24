@@ -7,7 +7,7 @@ export default class Singer extends Component {
         super(props);
         this.state ={singers : []}
     }
-    async componentWillMount(){
+    componentWillMount = async() => {
         try {
             const response = await axios.get("https://servertest12.herokuapp.com/singer")
             this.setState({singers : response.data.singers})
@@ -20,10 +20,9 @@ export default class Singer extends Component {
     render() {
         return (
         <View style={{flex : 1 , justifyContent : 'center' , backgroundColor : 'white' , paddingTop : 20}}>
-            <TouchableOpacity 
-            onPress={this.setWord}>
-                <Text>Click</Text>
-            </TouchableOpacity>
+            <View style={{ alignItems : 'center' , padding : 20}}>
+                <Text style={{fontSize : 20  }}> Singers Component </Text>
+            </View>
             <FlatList
                 data={this.state.singers}
                 keyExtractor={item => item.id}
